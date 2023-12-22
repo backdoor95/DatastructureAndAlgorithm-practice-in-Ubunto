@@ -53,10 +53,67 @@ void initialize5(ArrayList *arrayList) // pointer 사용
     // (*arrayList).V = (int*)malloc(sizeof(int)*arrayListSize);
 
     int arrayListSize = 500;
-    arrayList->n=0;
-    arrayList->N= arrayListSize;
-    arrayList->V = (int*)malloc(sizeof(int)*arrayListSize);
+    arrayList->n = 0;
+    arrayList->N = arrayListSize;
+    arrayList->V = (int *)malloc(sizeof(int) * arrayListSize);
+}
 
+void traverse(ArrayList *arrayList)
+{
+    int n = arrayList->n;
+    int N = arrayList->N;
+    for (int i = 0; i < n; i++)
+    {
+        printf("%d ", arrayList[i]);
+    }
+    printf("\n");
+    return;
+}
+
+void add(ArrayList *arrayList, int r, char e)
+{
+    int n = arrayList->n;
+    int N = arrayList->N;
+    if (n == N)
+    {
+        printf("fullListException\n");
+        return;
+    }
+    if ((r < 0) || (r > n))
+    {
+        printf("invalidRankException\n");
+        return;
+    }
+
+    for (int i = n - 1; i >= r; i--)
+    {
+        arrayList->V[i + 1] = arrayList->V[i];
+    }
+
+    arrayList->V[r] = e;
+    arrayList->n = arrayList->n + 1;
+    return;
+}
+
+//data의 자료형에 따라서 반환형이 달라진다.
+int remove(ArrayList *arrayList, int r)
+{
+    int n = arrayList->n;
+    int N = arrayList->N;
+    if ((r < 0) || (r > n - 1))
+    {
+
+        printf("invalidRankException\n");
+        return;
+    }
+    int e =arrayList->V[r];
+    for (int i = r+1; i <= n-1; i++)
+    {
+        arrayList->V[i-1]=arrayList->V[i];
+    }
+    arrayList->n = arrayList->n - 1;
+    return e;
+    
 }
 
 int main()
