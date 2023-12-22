@@ -127,7 +127,7 @@ char remove(LIST *list, int r)
     {
         p = p->next;
     }
-    char e = removeNode(p);
+    char e = removeNode(list, p);
     list->n = list->n - 1;
     return e;
 }
