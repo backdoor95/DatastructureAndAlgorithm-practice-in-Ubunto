@@ -1,7 +1,7 @@
 #include <stdlib.h>
 #include <stdio.h>
 #define MAX_SIZE 20
-int numbers[20];
+int numbers[MAX_SIZE];
 int rFindMax(int n)
 {
     if (n == 0) return numbers[0];

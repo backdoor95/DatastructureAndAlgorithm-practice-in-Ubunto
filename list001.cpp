@@ -28,7 +28,7 @@ int main()
 
     int n, r;
     char menu, e;
-
+    printf("check point 1\n");
     scanf("%d", &n);
     getchar();
 
@@ -44,13 +44,13 @@ int main()
             break;
         case 'G':
             scanf(" %d", &r);
-            get(list, r);
+            printf("%c\n", get(list, r));
             break;
         case 'P':
             traverse(list);
             break;
         case 'D':
-            scanf(" %d",&r);
+            scanf(" %d", &r);
             Remove(list, r);
             break;
         default:
@@ -112,15 +112,22 @@ void traverse(List *list)
 }
 void add(List *list, int r, char e)
 {
-    if ((r < 1) || (r > list->n+1))
+    printf("n의 값 before = %d\n", list->n);
+    printf("1\n");
+    if ((r < 1) || (r > list->n + 1))
         printf("add invalidRankException!");
+    printf("2\n");
     Node *p = list->Head;
+    printf("3\n");
     for (int i = 0; i < r; i++)
     {
         p = p->next;
     }
+    printf("4\n");
     addNodeBefore(p, e);
+    printf("5\n");
     list->n = list->n + 1;
+    printf("n의 값 after = %d\n", list->n);
     return;
 }
 void addNodeBefore(Node *p, char e)
@@ -128,7 +135,7 @@ void addNodeBefore(Node *p, char e)
     Node *q = getNode();
     q->elem = e;
     q->prev = p->prev;
-    p->next = p;
+    q->next = p;
     (p->prev)->next = q;
     p->prev = q;
     return;
