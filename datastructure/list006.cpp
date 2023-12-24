@@ -39,10 +39,26 @@ List *initGroup2()
     T->prev = H;
 
     List *list = (List *)malloc(sizeof(List)); // 메모리 할당
+    // 할당없이 하면 이상한값이 출력됨.
     list->H = H;
     list->T = T;
     list->n = 2000;
     return list;
+}
+// 순회
+void traverseGroup(List *list, char g)
+{
+    Node *p = list->H;
+    while (p != list->T)
+    {
+        if (p->group == g)
+        {
+            printf("%c", p->elem);
+        }
+        p = p->next;
+    }
+    printf("\n");
+    return;
 }
 int main()
 {
