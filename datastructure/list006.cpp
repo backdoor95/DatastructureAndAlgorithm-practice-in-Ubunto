@@ -60,6 +60,28 @@ void traverseGroup(List *list, char g)
     printf("\n");
     return;
 }
+void removeNode(Node *p)
+{
+
+    (p->prev)->next = p->next;
+    (p->next)->prev = p->prev;
+    free(p);
+}
+void removeGroup(List *list, char g)
+{
+    Node *p = list->H->next;
+    while (p != list->T)
+    {
+        Node *pnext = p->next;
+        if (p->group == g)
+        {
+            removeNode(p);
+            list->n = list->n - 1;
+        }
+        p = pnext;
+    }
+    return;
+}
 int main()
 {
     List *list1 = initGroup();
