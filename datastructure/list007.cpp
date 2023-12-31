@@ -6,7 +6,7 @@
 // 배열 이용
 
 // M * N  배열을 사용
-int M = 3, N = 8;
+const int M = 3, N = 8;
 
 int* initGroup(int* n){
 
@@ -18,11 +18,19 @@ int* initGroup(int* n){
     }
     return  n;
 }
-
+void traverseGroup(int V[][N], int* n, int g)
+{
+    for (int i = 0; i < n[g]; i++)
+    {
+        printf("visit V[%d, %d] = %d\n", g, i, V[g][i]);
+    }
+    
+}
 int main()
 {
     int n[M];
-
+    int v[M][N];
+    int g=0;
     printf(" 배열 n의 주소 = %p, &n = %p\n", n, &n);
     initGroup(n);
     for (int i = 0; i < M; i++)
@@ -30,5 +38,6 @@ int main()
         printf("%d\n", n[i]);
     }
 
+    traverseGroup(v, n, g);
     return 0;
 }
