@@ -26,6 +26,11 @@ void traverseGroup(int V[][N], int* n, int g)
     }
     
 }
+void removeGroup(int V[][N],int* n, int g)
+{
+    n[g]=0;
+    return;
+}
 int main()
 {
     int n[M];
