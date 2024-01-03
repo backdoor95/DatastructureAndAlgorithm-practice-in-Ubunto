@@ -42,21 +42,42 @@ group *initGroup(int M)
     return g;
 }
 // 순회
-void traverseGroupu(group* g, int gIdx)
+void traverseGroupu(group *g, int gIdx)
 {
     node *p = g->H[gIdx];
     while (p != g->T[gIdx])
     {
         printf("%d\n", p->elem);
-        p= p->next;
+        p = p->next;
     }
     return;
 }
 
 // 삽입
-void addGroupFirst(int g, char e)
+void addGroupFirst(group *g, int gIndx, char e)
 {
+    node *newNode = getnode();
+    newNode->elem = e;
+    g->H[gIndx]->next = newNode;
+    g->H[gIndx]->next->prev = newNode;
+    newNode->next = g->H[gIndx]->next;
+    newNode->prev = g->H[gIndx];
+    return;
+}
 
+// 삭제
+void removeGroup(group *g, int gIdx)
+{
+    node *p = g->H[gIdx];
+    while (p != g->T[gIdx])
+    {
+        node *pNext = p->next;
+        free(p);
+        p = pNext;
+    }
+    g->H[gIdx]->next = g->T[gIdx];
+    g->T[gIdx]->prev = g->H[gIdx];
+    return;
 }
 
 int main()
