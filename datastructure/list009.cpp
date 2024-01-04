@@ -75,6 +75,8 @@ void addShare(Group *Groups, Element *Elements, int e, int g)
     Node *HE = Elements[e].header;
     p->nextGroup = HE->nextGroup;
     HE->nextGroup = p;
+    p->eName = 'a' + e;
+    p->gName = 'A' + g;
     return;
 }
 
