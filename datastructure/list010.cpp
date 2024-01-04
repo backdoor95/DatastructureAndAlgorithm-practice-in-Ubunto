@@ -21,6 +21,7 @@ char get(int r)
 {
     if ((r < 0) || (r >= size()))
     {
+        printf("r = %d , size = %d\n", r, size());
         printf("invalidRankException\n");
         exit(1);
     }
@@ -30,6 +31,7 @@ char set(int r, char e)
 {
     if ((r < 0) || (r >= size()))
     {
+        printf("r = %d , size = %d\n", r, size());
         printf("invalidRankException\n");
         exit(1);
     }
@@ -41,11 +43,13 @@ void add(int r, int e)
     int n = size();
     if (n == N - 1)
     {
+        printf("r = %d , size = %d\n", r, n);
         printf("fullListException\n");
         exit(1);
     }
     if ((r < 0) || (r > size()))
     {
+        printf("r = %d , size = %d\n", r, n);
         printf("invalidRankException\n");
         exit(1);
     }
@@ -79,6 +83,7 @@ char remove(int r)
     }
     if ((r < 0) || (r >= n))
     {
+        printf("r = %d , size = %d\n", r, n);
         printf("invalidRankException\n");
         exit(1);
     }
