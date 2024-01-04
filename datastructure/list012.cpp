@@ -1,6 +1,7 @@
 #include <stdio.h>
 #include <stdlib.h>
 // 응용문제 : 생일 케이크 촛불 끄기
+// 해결 : 배열
 int N = 10;
 void buildList(int A[], int n)
 {
