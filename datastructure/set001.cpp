@@ -1,6 +1,7 @@
 #include <stdio.h>
 #include <stdlib.h>
 #include <string.h>
+// 구조체는 변수만 아니라 함수도 넣을수 있다.
 struct student
 {
     int id;
