@@ -33,4 +33,3 @@ int main(){
     struct student A;
     A.init();
     A.print();
-}
