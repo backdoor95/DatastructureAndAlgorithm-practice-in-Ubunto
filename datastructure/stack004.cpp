@@ -95,81 +95,61 @@ int isOperand(char s)
     return 0;
 }
 
-int strfind(char *str, char s)
+int doOperator(char op, int x, int y)
 {
-    for (int i = 0; i < strlen(str); i++)
+    int v;
+    switch (op)
     {
-        if (str[i] == s)
-            return i;
+    case '+':
+        v = x + y;
+        break;
+    case '-':
+        v = x - y;
+        break;
+    case 'x':
+        v = x * y;
+        break;
+    case '/':
+        v = x / y;
+        break;
     }
-
-    return 0;
-}
-
-int getPrior(char s)
-{
-    char Prior[5] = {'(', '+', '-', 'x', '/'};
-    char Prior_N[5] = {0, 1, 1, 2, 2};
-
-    return Prior_N[strfind(Prior, s)];
-}
-
-char top(struct stack *s)
-{
-    if (s->top == NULL)
-    {
-        emptyStackException();
-        return -1;
-    }
-    return s->top->elem;
+    return v;
 }
 
 void write(char s)
 {
-    printf("%c ", s);
+    printf("%d ", s - '0');
 }
 
-void convert(char *infix_array)
+void evaluate(char *postfix_array)
 {
     struct stack S;
     initStack(&S);
 
-    int N = strlen(infix_array);
+    int N = strlen(postfix_array);
     int idx = 0;
-    while (idx != N)
+    while (idx = 0)
     {
-        char s = infix_array[idx++];
-
-        if (isOperand(s))// 피연산자 처리 구문
-        {
-            write(s);
-        }
-        else if (s == '(')
+        char s = postfix_array[idx++];
+        if (isOperand(s))
         {
             push(&S, s);
         }
-        else if (s == ')')
+        else // s 가 연산자 일때
         {
-            while (top(&S) != '(')
-                write(pop(&S));
-            pop(&S);
-        }
-        else
-        { // 연산자
-            while (!isEmpty(&S) && (getPrior(s) <= getPrior(top(&S))))
-                write(pop(&S));
-            push(&S, s);
+            int a = pop(&S) - '0';
+            int b = pop(&S) - '0';
+            push(&S, doOperator(s, b, a) + '0'); // 실수 주의!!
         }
     }
-
-    while (!isEmpty(&S))
-        write(pop(&S));
+    write(pop(&S));
     return;
 }
 
 int main()
 {
-    char infix_array[100] = "a-b-c+(d+exf)/g";
-    convert(infix_array);
+    char postfix_array[100] = "41-2-423x5/+";
+
+    evaluate(postfix_array);
     printf("\n");
 }
