@@ -153,6 +153,7 @@ void convert(char *infix_array)
     stack S;
     initStack(&S);
 
+    // 단항 연산자 체크하고 변환
     checkUnaryOperator(infix_array);
 
     int N = strlen(infix_array);
@@ -179,7 +180,6 @@ void convert(char *infix_array)
         { // 연산자
             while (!isEmpty(&S) && (getPrior(s) <= getPrior(top(&S))))
                 write(pop(&S));
-
             if (s == '&' || s == '|')
             {
                 push(&S, s);
