@@ -96,17 +96,20 @@ void binaryInOrder(treeNode *v)
     }
 }
 
-treeNode* findID(treeNode* v, int id)
+treeNode *findID(treeNode *v, int id)
 {
-    if(v!=NULL)
+    if (v != NULL)
     {
-        if(v->id == id) return v;
+        if (v->id == id)
+            return v;
 
-        treeNode* p = NULL;
+        treeNode *p = NULL;
         p = findID(leftChild(v), id);
-        if(p!=NULL) return p;
+        if (p != NULL)
+            return p;
         p = findID(rightChild(v), id);
-        if(p!=NULL) return p;
+        if (p != NULL)
+            return p;
     }
     return NULL;
 }
@@ -115,5 +118,24 @@ int main()
 {
     treeNode *root = treeBuild();
 
+    int id, type;
+    scanf("%d %d", &type, &id);
+
+    treeNode *p = findID(root, id);
+
+    if (p != NULL)
+    {
+        if (type == 1)
+            binaryPreOrder(p);
+        else if (type == 2)
+            binaryInOrder(p);
+        else if (type == 3)
+            binaryPostOrder(p);
+    }
+    else
+    {
+        printf("-1");
+    }
+    printf("\n");
     return 0;
 }
