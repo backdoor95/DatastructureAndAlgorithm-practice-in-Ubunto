@@ -2,6 +2,7 @@
 #include <stdlib.h>
 
 // 오일러 투어 : 오일러 투어를 통해서 각 부트리의 크기를 알 수 있다.
+// 이진트리에 대한 일반순회
 
 int k;
 typedef struct treeNode
@@ -135,6 +136,6 @@ int main()
     eulerTour(root);
     binaryPreOrder(root);
     // 오일러 투어 순회는 선위/중위/후위 순회를 모두 필요한 경우에 활용하면됨.
-    
+
     return 0;
 }
