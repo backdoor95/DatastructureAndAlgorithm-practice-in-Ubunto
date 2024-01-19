@@ -2,6 +2,9 @@
 using namespace std;
 int main()
 {
+    ios::sync_with_stdio(false);
+    cin.tie(NULL);
+    
     string a = "love is";
     a += " pain!";
     a.pop_back();
@@ -18,14 +21,15 @@ int main()
 
     a.erase(0, 5);
     cout << a <<" : "<< a.size() << endl;
-    auto it = a.find("love");
 
+    auto it = a.find("love");
     if (it != string::npos)
     {
         cout << "해당 문자열을 찾음!" << endl;
     }
     cout << it << endl;
     cout << string::npos << endl;
-    cout << a.substr(5, 2) << endl;
+    cout << a.substr(5, 2) << endl;// 특정 위치에서 크기만큼의 문자열을 추출함.
+
     return 0;
 }
