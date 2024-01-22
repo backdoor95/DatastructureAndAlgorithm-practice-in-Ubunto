@@ -9,4 +9,7 @@ int main()
     cout << a / b << endl;
     double c = 3, d = 2;
     cout << c / d << endl;
+    const int mx = 10;
+    int k[a][b];
+    cout << "done" << endl;
 }
