@@ -18,6 +18,7 @@
         "set": "cpp",
         "span": "cpp",
         "sstream": "cpp",
-        "regex": "cpp"
+        "regex": "cpp",
+        "iostream": "cpp"
     }
 }
