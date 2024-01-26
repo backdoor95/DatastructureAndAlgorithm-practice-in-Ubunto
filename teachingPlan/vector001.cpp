@@ -28,7 +28,7 @@ int main()
     if (findIter == v.end())
         cout << "not found" << endl;
 
-    fill(v.begin(), v.end(), 10);
+    fill(v.begin(), v.end(), 10);/// 처음부터 끝까지 10으로 채움.
     for (int a : v)
         cout << a << " ";
     cout << endl;
