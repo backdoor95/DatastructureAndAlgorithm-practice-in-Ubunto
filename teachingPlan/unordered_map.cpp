@@ -1,6 +1,6 @@
 #include <bits/stdc++.h>
 using namespace std;
-unordered_map<string, int> umap;
+unordered_map<string, int> umap; // 정렬이 안됨.
 int main()
 {
     ios_base::sync_with_stdio(false);
