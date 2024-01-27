@@ -15,5 +15,14 @@ int main()
     st.insert({"test", 1});
     cout << st.size() << endl;
 
+    // 중복 허용 안 함.
+    // 중복된 값은 제거 됨.
+
+    set<int> st2;
+    st2.insert(2);
+    st2.insert(1);
+    st2.insert(2);
+    cout << st2.size() << endl;
+
     return 0;
 }
