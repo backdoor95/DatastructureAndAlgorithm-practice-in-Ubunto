@@ -26,5 +26,18 @@ int main()
 {
     vector<int> b;
     combi(-1, b);
+
+// 중첩 for문 으로 조합 구현하기
+    for (int i = 0; i < n; i++)
+    {
+        for (int j = i + 1; j < n; j++)
+        {
+            for (int k = j + 1; k < n; k++)
+            {
+                cout << i << " " << j << " " << k << '\n';
+            }
+        }
+    }
+
     return 0;
 }
