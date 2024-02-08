@@ -16,7 +16,7 @@ void combi(int start, vector<int> &b)
         if (sum == 100)
         {
             printV(b);
-            exit(0);
+            exit(0);// 프로세스 종료
         }
     }
 

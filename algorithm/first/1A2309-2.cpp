@@ -25,7 +25,7 @@ int main()
         cin >> a[i];
     }
 
-    sort(a, a + 9);
+    sort(a, a + 9);// next_permutation(a, a+9)를 사용하기 위해서는 sort를 해야함.
     vector<int> v;
 
     do
